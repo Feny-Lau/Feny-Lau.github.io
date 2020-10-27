@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#Web核心技术-Filter，Listener ##Filter1.概念：过滤器。     *当访问服务器的资源时，过滤器可以将请求拦截下来，完成一些特殊的功能 2.功能：一般用于完成通用的操作。如：登陆验证，统一编码处理，敏感字符的过滤 3.使用： 1.定义一个类，实现filter 2.复写方法 3.配置拦截资源     @WebFilter(&quot;&#x2F;*&quot;)   &#x2F;&#x2F;访问所有资">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2020/10/08/Web%E4%B8%89%E5%A4%A7%E4%BB%B6-Filter%EF%BC%8CListener/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="#Web核心技术-Filter，Listener ##Filter1.概念：过滤器。     *当访问服务器的资源时，过滤器可以将请求拦截下来，完成一些特殊的功能 2.功能：一般用于完成通用的操作。如：登陆验证，统一编码处理，敏感字符的过滤 3.使用： 1.定义一个类，实现filter 2.复写方法 3.配置拦截资源     @WebFilter(&quot;&#x2F;*&quot;)   &#x2F;&#x2F;访问所有资">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-08T13:36:14.450Z">
+<meta property="article:modified_time" content="2020-10-14T11:50:52.059Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Web三大件-Filter，Listener" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/10/08/Web%E4%B8%89%E5%A4%A7%E4%BB%B6-Filter%EF%BC%8CListener/" class="article-date">
+  <time datetime="2020-10-08T13:36:14.450Z" itemprop="datePublished">2020-10-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#Web核心技术-Filter，Listener</p>
+<p>##Filter<br>1.概念：过滤器。</p>
+<pre><code>    *当访问服务器的资源时，过滤器可以将请求拦截下来，完成一些特殊的功能</code></pre>
+<p>2.功能：一般用于完成通用的操作。如：登陆验证，统一编码处理，敏感字符的过滤</p>
+<p>3.使用：</p>
+<pre><code>1.定义一个类，实现filter
+2.复写方法
+3.配置拦截资源
+    @WebFilter(&quot;/*&quot;)   //访问所有资源之前都会执行该过滤器
+    public class FilterDemo1 implements Filter &#123;
+4.编写对应Filter代码
+5.放行
+    filterChain.doFilter(servletRequest,servletResponse);</code></pre>
+<p>4.过滤器细节;</p>
+<pre><code>1.web.xml配置Filter
+     &lt;filter&gt;
+        &lt;filter-name&gt;demo1&lt;/filter-name&gt;
+        &lt;filter-class&gt;cn.cm.web.filter.FilterDemo1&lt;/filter-class&gt;
+    &lt;/filter&gt;
+    &lt;filter-mapping&gt;
+        &lt;filter-name&gt;demo1&lt;/filter-name&gt;
+        &lt;url-pattern&gt;/*&lt;/url-pattern&gt;    //拦截路径
+    &lt;/filter-mapping&gt;
+2.过滤器的执行流程
+
+    //访问服务器资源前拦截：一般用于对request的请求消息进行增强
+    System.out.println(&quot;FileterDemo2...执行了&quot;);
+    //访问服务器资源：放行操作
+    chain.doFilter(req, resp);
+
+    //访问服务器资源后再次拦截： 一般用于对response对象的响应消息增强
+    System.out.println(&quot;FileterDemo2回来了&quot;);
+
+3.过滤器的生命周期方法
+    1.init：服务器启动时，创建Filter独享，然后调用init方法。只执行1次，用于加载资源
+    2.doFilter：每一次请求被拦截，会执行。可执行多次
+    3.destroy：在服务器关闭时，filter对象被销毁。如果服务器正常关闭，就会执行destroy方法
+
+4.过滤器配置详解
+    *拦截路径配置：
+        1.具体资源路径：/index.jsp   只有访问index.jsp资源时，过滤器才会执行
+        2.拦截目录：/user/*  访问/user下所有的资源是，过滤器都会执行
+        3.后缀名： *.jsp        访问所有后缀名为jsp资源是，过滤器都会被执行
+        4.拦截所有资源 /*    访问所有资源都会执行过滤器
+
+    *拦截方式配置：
+        1.资源被访问的方式
+            *注解配置
+                *设置dispatcherTypes
+                    1.REQUEST：默认值。浏览器直接访问资源
+                    2.FORWARD：转发访问方式（转发无法绕过Filter）
+            *web.xml配置
+                *&lt;dispatcher&gt;标签&lt;/dispatcher&gt;
+
+5.过滤器链
+    *执行顺序：如果有2个过滤器：过滤器1和过滤器2
+        1.过滤器1
+        2.过滤器2
+        3.资源执行
+        4.过滤器2
+        5.过滤器1
+    *过滤器先后顺序
+        1.注解配置：按照类名的字符串顺序比较，值小的先执行
+            *如AFilter和BFilter，AFilter就先执行
+        2.web.xml配置
+            *谁定义在上边，谁先执行
+
+6.案例：
+    需求：
+    1. 访问day17_case案例的资源。验证其是否登录
+    2. 如果登录了，则直接放行。
+    3. 如果没有登录，则跳转到登录页面，提示&quot;您尚未登录，请先登录&quot;。
+
+
+
+7.增强对象的功能
+    *设计模式：一些通用的解决固定问题的方式
+    1.装饰模式
+    2.代理模式
+        1.动态代理
+
+8.代理模式
+    概念：
+        1.真实对象：被代理的对象
+        2.代理对象
+        3.代理模式：代理对象代理真实对象，达到增强真实对象功能的目的
+    实现方式：
+        1.静态代理：有一个类文件描述代理模式
+        2.动态代理：在内存中形成代理类
+            *实现步骤：
+                1.代理对象和真实对象实现相同的接口
+                2.代理对象 = Proxy.newInstance（）；
+                3.使用代理对象调用方法。
+                4.增强方法
+            *增强方式：
+                1.增强参数列表
+                2.增强返回值类型
+                3.增强返回值
+
+
+**     SaleComputer proxy_lenovo = (SaleComputer )Proxy.newProxyInstance(lenovo.getClass().getClassLoader(), lenovo.getClass().getInterfaces(), new InvocationHandler() &#123;**
+        /*
+            代理逻辑编写的方法：代理对象调用的所有方法都会触发该方法执行
+              参数：
+                1.proxy：代理对象
+                2.method：  代理对象调用的方法，被封装成的对象
+                3.args： 代理对象调用的方法时，传递的参数
+         */
+        @Override
+        public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;
+
+            /**
+             * 1.增强参数
+             *
+             */
+            // 判断是否为sale方法
+            if(method.getName() == &quot;sale&quot;)&#123;
+                //增强参数
+                double money = (double)args[0]*0.85;
+                System.out.println(&quot;专车接送&quot;);
+               **String obj = (String)method.invoke(lenovo, money);**
+                System.out.println(&quot;免费送货&quot;);
+                //增强返回值
+                return obj+&quot;_鼠标垫&quot;;
+            &#125;else&#123;
+                Object obj = method.invoke(lenovo, args);
+                return obj;
+            &#125;
+
+        &#125;
+    &#125;);</code></pre>
+<p>##Listener：监听器<br>    *概念：web的三大组件之一<br>        *事件监听机制：<br>            *事件：一件事情<br>            *事件源：事件发生的地方<br>            *监听器：一个对象<br>            *注册监听：将事件源和监听器绑定在一起。当事件源发生某个时间后，执行监听器代码<br>    *ServletContextListener：一种监听器。监听ServletContext对象的创建和销毁<br>        *方法：<br>            *void contextDestroyed(ServletContextEvent sce) ：ServletContext被销毁前，调用该方法<br>            *void contextInitialized(ServletContextEvent sce) ：ServletContext创建时，调用该方法<br>        *步骤<br>            1.定义一个类，实现ServletContextListener接口<br>            2.复写方法<br>            3.配置：<br>                1.web.xml<br>                2.注解配置</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/10/08/Web%E4%B8%89%E5%A4%A7%E4%BB%B6-Filter%EF%BC%8CListener/" data-id="ckgs20lgv0003tgxc09idecbl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/10/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/10/08/%E5%8F%8D%E5%B0%84%E6%A6%82%E5%BF%B5%E5%9B%9E%E9%A1%BE/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/10/25/JQuery%E9%AB%98%E7%BA%A7/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/14/JQuery/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/09/Java%E6%A1%88%E4%BE%8B-%E4%BA%BA%E5%8A%9B%E4%BF%A1%E6%81%AF%E8%A1%A8/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/08/Web%E4%B8%89%E5%A4%A7%E4%BB%B6-Filter%EF%BC%8CListener/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

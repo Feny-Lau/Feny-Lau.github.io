@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#JQuery 核心记忆点：    1.概念：JavaScript的框架。简化JS开发。    2. $(“#id的属性值”).prop()    3.  $(“.class属性”).append($(“标签”)) ##1.概念：JavaScript的框架。简化JS开发。 *它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2020/10/14/JQuery/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="#JQuery 核心记忆点：    1.概念：JavaScript的框架。简化JS开发。    2. $(“#id的属性值”).prop()    3.  $(“.class属性”).append($(“标签”)) ##1.概念：JavaScript的框架。简化JS开发。 *它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-14T13:15:29.910Z">
+<meta property="article:modified_time" content="2020-10-27T14:09:19.348Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JQuery" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/10/14/JQuery/" class="article-date">
+  <time datetime="2020-10-14T13:15:29.910Z" itemprop="datePublished">2020-10-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#JQuery</p>
+<p>核心记忆点：<br>    1.概念：JavaScript的框架。简化JS开发。<br>    2. $(“#id的属性值”).prop()<br>    3.  $(“.class属性”).append($(“标签”))</p>
+<p>##1.概念：JavaScript的框架。简化JS开发。</p>
+<pre><code>*它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。
+
+*JavaScript框架：本身就是js文件，封装了JS的原装代码</code></pre>
+<p>2.快速入门</p>
+<pre><code>1.下载JQuery
+2.导入JQuery的JS文件：min.js
+3.使用</code></pre>
+<h2 id="var-div1-“-div1”"><a href="#var-div1-“-div1”" class="headerlink" title="var div1 = $(“#div1”);"></a>var div1 = $(“#div1”);</h2><h2 id="alert-div1-html"><a href="#alert-div1-html" class="headerlink" title="alert(div1.html());"></a>alert(div1.html());</h2><p>3.jquery对象和js对象的转换<br>       1jquery在操作时更加方便<br>       2.jq对象和js对象方法不通用<br>       3.2者相互转换</p>
+<h2 id="jq-–-gt-js-jq对象【index】"><a href="#jq-–-gt-js-jq对象【index】" class="headerlink" title="*jq –&gt; js  :jq对象【index】"></a>*jq –&gt; js  :jq对象【index】</h2><h2 id="js-–-gt-jq-js对象"><a href="#js-–-gt-jq-js对象" class="headerlink" title="*js –&gt; jq  :$(js对象)"></a>*js –&gt; jq  :$(js对象)</h2><p>4.选择器：筛选具有相似特征的元素（标签）</p>
+<pre><code>1.基本语法学习：
+    1.事件绑定
+    2.入口函数</code></pre>
+<h2 id="function-等效于window-onload"><a href="#function-等效于window-onload" class="headerlink" title="$(function () {                     //等效于window.onload"></a>$(function () {                     //等效于window.onload</h2><h2 id="“-b1”-click-function-等效于b1-onclick-function"><a href="#“-b1”-click-function-等效于b1-onclick-function" class="headerlink" title="$(“#b1”).click(function () {    //等效于b1.onclick = function()"></a>$(“#b1”).click(function () {    //等效于b1.onclick = function()</h2><pre><code>                alert(&quot;abc&quot;)
+                &#125;)
+        &#125;)
+    3.样    式控制
+            $(function () &#123;
+                // $(&quot;#div1&quot;).css(&quot;background-color&quot;,&quot;red&quot;);</code></pre>
+<h2 id="“-div1”-css-“backgroundColor”-”pink”"><a href="#“-div1”-css-“backgroundColor”-”pink”" class="headerlink" title="$(“#div1”).css(“backgroundColor”,”pink”);"></a>$(“#div1”).css(“backgroundColor”,”pink”);</h2><pre><code>            &#125;)
+2.分类
+    1.基本选择器
+        1.标签选择器
+            *语法： $(&quot;html标签名&quot;) 获得所有匹配标签名称的元素
+        2.id选择器
+            *语法： $(&quot;#id的属性值&quot;)   
+        3.类选择器
+            *$(&quot;.class的属性值&quot;)
+        4.并集选择器
+            *$(&quot;选择器1，选择器2，....&quot;)      如：$(&quot;span,#two&quot;)
+
+    2.层级选择器
+        1.后代选择器
+            *语法： $(&quot;A B&quot;)             获得A元素内部所有的B元素 （所有后代元素）
+        2.子选择器
+            *语法： $(&quot;#id的属性值&quot;)     获得A元素内部所有的B子元素 （只有子元素）
+    3.属性选择器
+        1.属性名称选择器
+            *语法： $(&quot;A[属性名]&quot;)      获得包含指定属性的标签 
+        2.属性选择器
+            *语法： $(&quot;A[属性名=&#39;值&#39;]&quot;)   获得包含指定属性等于指定值的标签 
+        3.复合属性选择器
+            *语法： $(&quot;A[属性名=&#39;值&#39;][]&quot;)  包含多个属性值的标签
+        4.反向属性选择器
+            *语法： $(&quot;A[属性名！=&#39;值&#39;]&quot;)  匹配所有不含有指定的属性，或者属性不等于特定值的元素。
+
+    4.层级选择器
+        1.首元素选择器
+            *语法： ：first 
+        2.尾元素选择器
+            *语法： ：last   
+        3.非元素选择器
+            *    ：not（selector）        如：$(&quot;div:not(.one)&quot;)
+        4.偶数选择器
+            *语法： ：even            从0开始
+        5.奇数选择器
+            *语法：： odd            从0开始
+        6.指定索引选择器
+        7.大于索引选择器
+            *语法： ：gt（index） 
+        8.小于索引选择器
+            *语法：    ： lt（index）  
+        9.标题选择器
+                *    ：header    获得标题（h1~h6)的元素。固定写法    
+    5.表单过滤选择器
+        1.可用元素选择器
+            *语法：     ：enable        获得可用元素
+        2.不可用元素选择器        
+            *语法： ：disabled   获得不可用元素
+        3.选中选择器
+                *   ：checked    获得单选/复选框中的元素
+        4.选中选择器
+                *    ：selected   获得下拉框中的元素</code></pre>
+<p>5.DOM操作<br>    1.内容操作<br>        1.html():获取/设置元素的标签体内容   <a><font>context</font></a> –&gt;<font>context</font><br>        2.text()：获取/设置元素的纯文本内容        <a><font>context</font></a> –&gt;context<br>        3.val()：获取/设置元素的value属性值<br>    2.属性操作<br>        1.通用属性操作<br>            1.attr():    获取/设置属性的值<br>            2.remove（）:删除属性<br>            3.prop():    获取/设置属性的值<br>            4.removeProp():删除属性</p>
+<pre><code>        *attr和prop的区别：
+            1.如果操作的是元素的固有属性，则建议使用prop
+            2.如果操作的是元素自定义属性，则建议使用attr
+    2.对class属性操作
+        1.addClass():    添加class属性值
+        2.removeClass():删除class属性值
+        3.toggleClass():切换class属性值
+            * toggleClass(&quot;one&quot;):如果元素对象上存在class =“one”则删除，不存在则添加
+3.CRUD操作
+    1.append():父元素将子元素追加至末尾
+        *对象1.append（对象2）：将对象2添加至对象1元素内部，并且在末尾
+    2.prepend：父元素将子元素追加至开头
+        *对象1.prepend（对象2）：将对象2添加至对象1元素内部，并且在开头
+    3.appendTo():
+        *对象1.appendTo（对象2）：将对象1添加至对象2元素内部，并且在末尾
+    4.prependTo()
+        *对象1.prependTo（对象2）：将对象1添加至对象2元素内部，并且在开头
+
+    5.after():添加元素到对应的元素后面
+        *对象1.after(对象2)：将对象2添加至对象1后方。对象1和对象2是兄弟关系
+    6.before():添加元素到对应的元素前面
+        *对象1.before(对象2)：将对象2添加至对象1前方。对象1和对象2是兄弟关系
+    7.insertAfter()
+        *对象1.insertAfter(对象2)：
+    8.insertBefore()
+        *对象1.insertBefore(对象2)：将
+
+    9.remove():移除元素
+        *对象.remove():将对象删除掉
+    10.empty():清楚元素所有后代元素
+        *对象.empty():将对象的所有后代元素清空，但保留当前对象及其节点    </code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/10/14/JQuery/" data-id="ckgs20lgg0000tgxc76m5d269" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/10/25/JQuery%E9%AB%98%E7%BA%A7/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/10/09/Java%E6%A1%88%E4%BE%8B-%E4%BA%BA%E5%8A%9B%E4%BF%A1%E6%81%AF%E8%A1%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/10/25/JQuery%E9%AB%98%E7%BA%A7/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/14/JQuery/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/09/Java%E6%A1%88%E4%BE%8B-%E4%BA%BA%E5%8A%9B%E4%BF%A1%E6%81%AF%E8%A1%A8/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/08/Web%E4%B8%89%E5%A4%A7%E4%BB%B6-Filter%EF%BC%8CListener/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
